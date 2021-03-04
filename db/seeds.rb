@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 kunal = User.create(username: 'kunals')
+
+ruby = Deck.create(title: "Ruby")
+javascript = Deck.create(title: "JavaScript")
