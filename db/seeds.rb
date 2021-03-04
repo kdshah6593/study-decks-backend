@@ -8,5 +8,5 @@
 
 kunal = User.create(username: 'kunals')
 
-ruby = Deck.create(title: "Ruby")
-javascript = Deck.create(title: "JavaScript")
+ruby = Deck.create(title: "Ruby", user_id: kunal.id)
+javascript = Deck.create(title: "JavaScript", user_id: kunal.id)
