@@ -29,6 +29,14 @@
 - belongs to deck
 
 
+# Features
+- User login
+- List all Decks on Left side
+- Flash Card in Middle; flash card flips front and back side
+- Arrows left and right to go through flash cards
+- Buttons for Add/Edit/Delete flash cards and Decks
+- Test/Randomize Cards Button 
+
 
 
 # Stretch Goals
