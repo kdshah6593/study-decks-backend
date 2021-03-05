@@ -10,21 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_221245) do
+ActiveRecord::Schema.define(version: 2021_03_05_172056) do
 
   create_table "decks", force: :cascade do |t|
     t.string "title"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "flashcards", force: :cascade do |t|
     t.text "front"
     t.text "back"
-    t.integer "deck_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "deck_id", null: false
+    t.index ["deck_id"], name: "index_flashcards_on_deck_id"
   end
 
   create_table "users", force: :cascade do |t|
