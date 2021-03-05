@@ -2,18 +2,18 @@ class Api::V1::DecksController < ApplicationController
     
     def index
         decks = Deck.all
-        render json: decks
+        render json: DeckSerializer.new(decks)
     end
 
     def show
         deck = Deck.find_by(id: params[:id])
-        render json: deck
+        render json: DeckSerializer.new(deck)
     end
 
     def create
         deck = Deck.new(deck_params)
         if deck.save
-            render json: deck, status: :accepted
+            render json: DeckSerializer.new(deck), status: :accepted
         else
             render json: {errors: deck.errors.full_messages}, status: :unprocessable_entity
             # add validation in Deck Model for title presence
@@ -23,7 +23,7 @@ class Api::V1::DecksController < ApplicationController
     def update
         deck = Deck.find_by(id: params[:id])
         deck = deck.update(deck_params)
-        render json: deck, status: :accepted
+        render json: DeckSerializer.new(deck), status: :accepted
     end
 
     def destroy
