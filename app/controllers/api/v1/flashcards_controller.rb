@@ -2,18 +2,18 @@ class Api::V1::FlashcardsController < ApplicationController
         
     def index
         flashcards = Flashcard.all
-        render json: flashcards
+        render json: FlashcardSerializer.new(flashcards)
     end
 
     def show
         flashcard = Flashcard.find_by(id: params[:id])
-        render json: flashcard
+        render json: FlashcardSerializer.new(flashcard)
     end
 
     def create
         flashcard = Flashcard.new(flashcard_params)
         if flashcard.save
-            render json: flashcard, status: :accepted
+            render json: FlashcardSerializer.new(flashcard), status: :accepted
         else
             render json: {errors: flashcard.errors.full_messages}, status: :unprocessable_entity
             # add validation in flashcard Model for front & back presence
@@ -23,7 +23,7 @@ class Api::V1::FlashcardsController < ApplicationController
     def update
         flashcard = Flashcard.find_by(id: params[:id])
         flashcard = flashcard.update(flashcard_params)
-        render json: flashcard, status: :accepted
+        render json: FlashcardSerializer.new(flashcard), status: :accepted
     end
 
     def destroy
