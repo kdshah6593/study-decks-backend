@@ -21,11 +21,15 @@ class Api::V1::DecksController < ApplicationController
     end
 
     def update
-
+        deck = Deck.find_by(id: params[:id])
+        deck = deck.update(deck_params)
+        render json: deck, status: :accepted
     end
 
     def destroy
-
+        deck = Deck.find_by(id: params[:id])
+        deck.destroy
+        # what do I need to render here?
     end
 
     private
