@@ -34,7 +34,7 @@ class Api::V1::DecksController < ApplicationController
 
     private
     def deck_params
-        params.require(:deck).permit(:title, :user_id)
+        params.require(:deck).permit(:title, :user_id) # these attributes should be in body of fetch request
     end
 
 end
