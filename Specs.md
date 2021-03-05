@@ -46,9 +46,9 @@ The application we will create during the project build series is a "Syllabus Sh
 
 ### PART 2: Routes, Controllers, Serializers
 
-- [ ] 1. Name spaced routes
-- [ ] 2. Controllers rendering JSON based on routes
-- [ ] 3. Fast JSON Serializer
+- [x] 1. Name spaced routes
+- [x] 2. Controllers rendering JSON based on routes
+- [x] 3. Fast JSON Serializer
 
 <!--
 
