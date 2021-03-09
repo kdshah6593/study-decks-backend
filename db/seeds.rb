@@ -9,7 +9,7 @@ User.destroy_all
 Deck.destroy_all
 Flashcard.destroy_all
 
-kunal = User.create(username: 'kunals', password_digest: 'password')
+kunal = User.create(username: 'kunals', password: 'password')
 
 ruby = Deck.create(title: "Ruby", user_id: kunal.id)
 javascript = Deck.create(title: "JavaScript", user_id: kunal.id)
