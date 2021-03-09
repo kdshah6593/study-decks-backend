@@ -22,7 +22,7 @@ class Api::V1::FlashcardsController < ApplicationController
 
     def update
         flashcard = Flashcard.find_by(id: params[:id])
-        flashcard = flashcard.update(flashcard_params)
+        flashcard.update(flashcard_params)
         render json: FlashcardSerializer.new(flashcard), status: :accepted
     end
 
