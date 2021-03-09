@@ -31,7 +31,7 @@ class Api::V1::FlashcardsController < ApplicationController
         flashcard.destroy
         # what do I need to render here?
         flashcards = Flashcard.all
-        render json: FlascardSerializer.new(flashcards)
+        render json: FlashcardSerializer.new(flashcards)
     end
 
     private
