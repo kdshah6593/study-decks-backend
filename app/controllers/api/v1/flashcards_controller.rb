@@ -30,6 +30,8 @@ class Api::V1::FlashcardsController < ApplicationController
         flashcard = Flashcard.find_by(id: params[:id])
         flashcard.destroy
         # what do I need to render here?
+        flashcards = Flashcard.all
+        render json: FlascardSerializer.new(flashcards)
     end
 
     private
