@@ -16,7 +16,6 @@ class Api::V1::DecksController < ApplicationController
             render json: DeckSerializer.new(deck), status: :accepted
         else
             render json: {errors: deck.errors.full_messages}, status: :unprocessable_entity
-            # add validation in Deck Model for title presence
         end
     end
 
@@ -29,7 +28,6 @@ class Api::V1::DecksController < ApplicationController
     def destroy
         deck = Deck.find_by(id: params[:id])
         deck.destroy
-        # what do I need to render here?
         decks = Deck.all
         render json: DeckSerializer.new(decks)
     end

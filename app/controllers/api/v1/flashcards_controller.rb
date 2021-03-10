@@ -16,7 +16,6 @@ class Api::V1::FlashcardsController < ApplicationController
             render json: FlashcardSerializer.new(flashcard), status: :accepted
         else
             render json: {errors: flashcard.errors.full_messages}, status: :unprocessable_entity
-            # add validation in flashcard Model for front & back presence
         end
     end
 
@@ -29,7 +28,6 @@ class Api::V1::FlashcardsController < ApplicationController
     def destroy
         flashcard = Flashcard.find_by(id: params[:id])
         flashcard.destroy
-        # what do I need to render here?
         flashcards = Flashcard.all
         render json: FlashcardSerializer.new(flashcards)
     end
