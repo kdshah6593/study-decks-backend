@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :decks
       resources :flashcards
       resources :users, only: [:index, :show, :create]
-      post '/login', to: 'user#create'
+      post '/login', to: 'auth#create'
     end
   end
 
