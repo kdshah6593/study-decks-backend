@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_03_09_225150) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "decks", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_225150) do
     t.text "back"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "deck_id", null: false
+    t.bigint "deck_id", null: false
     t.index ["deck_id"], name: "index_flashcards_on_deck_id"
   end
 
